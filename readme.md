@@ -6,5 +6,5 @@ There are some issues with [HenningM/express-ws](https://github.com/HenningM/exp
 ## Features
 - [x] Use directly from app.ws
 - [x] http and ws of the same route can exist at the same time
-- [ ] Support regexp routing
-- [ ] Support reading params, query parameters
+- [x] Support regexp routing
+- [x] Support reading params, query parameters

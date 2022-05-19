@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "path-to-regexp": "0.1.7",
     "ws": "7.5.5"
   },
   "devDependencies": {
