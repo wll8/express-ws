@@ -12,12 +12,12 @@ There are some issues with [HenningM/express-ws](https://github.com/HenningM/exp
 ## how to use
 
 ``` sh
-npm i express-websocket
+npm i @wll8/express-ws
 ```
 
 ``` js
 const express = require(`express`)
-const expressWs = require(`express-websocket`)
+const expressWs = require(`@wll8/express-ws`)
 const app = express()
 expressWs(app)
 

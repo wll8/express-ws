@@ -1,14 +1,22 @@
 {
-  "name": "express-websocket",
+  "name": "@wll8/express-ws",
   "version": "1.0.0",
   "description": "Quickly implement websocket API in express",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "express",
+    "ws",
+    "websocket"
+  ],
+  "author": "wll8",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wll8/express-ws.git"
+  },
   "dependencies": {
     "path-to-regexp": "0.1.7",
     "ws": "7.5.5"
