@@ -6,7 +6,7 @@ There are some issues with [HenningM/express-ws](https://github.com/HenningM/exp
 ## Features
 - [x] Use directly from app.ws
 - [x] http and ws of the same route can exist at the same time
-- [x] Support regexp routing
+- [x] Support dynamic routing
 - [x] Support reading params, query parameters
 
 ## how to use
@@ -30,6 +30,8 @@ app.get(`/abc`, (req, res) => {
 
 app.listen(3040)
 ```
+
+For more examples see the file: [test.js](./test/index.test.js)
 
 ## License
 [MIT](https://opensource.org/licenses/MIT)
