@@ -1,6 +1,6 @@
 {
   "name": "@wll8/express-ws",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Quickly implement websocket API in express",
   "main": "index.js",
   "scripts": {

@@ -31,6 +31,11 @@ app.get(`/abc`, (req, res) => {
 app.listen(3040)
 ```
 
+## http.createServer
+``` js
+expressWs({app, server: http.createServer(app)})
+```
+
 For more examples see the file: [test.js](./test/index.test.js)
 
 ## License

@@ -9,11 +9,18 @@ const http = require(`http`)
 
 /**
  * Quickly implement websocket API in express
- * @param {*} app express()
+ * @param {*} app or {app: express(), server: http.createServer(app)}
  */
-function expressWs(app) {
+function expressWs(arg0) {
+  let cfg = {}
+  if(typeof(arg0) === `function`) { // express()
+    cfg.app = arg0
+    cfg.server = http.createServer(arg0)
+  } else if(typeof(arg0) === `object`) {
+    cfg = arg0
+  }
+  const {app, server} = cfg
   app.wsRoute = []
-  const server = http.createServer(app)
   server.on(`upgrade`, (req, socket, head) => {
     const obj = app.wsRoute.find(item => {
       const isFind = pathToRegexp(item.route).exec(req.url)
