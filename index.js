@@ -12,12 +12,19 @@ const http = require(`http`)
  * @param {*} app or {app: express(), server: http.createServer(app)}
  */
 function expressWs(arg0) {
-  let cfg = {}
+  let cfg = {
+    options: {
+      ws: { noServer: true },
+    },
+  }
   if(typeof(arg0) === `function`) { // express()
     cfg.app = arg0
     cfg.server = http.createServer(arg0)
   } else if(typeof(arg0) === `object`) {
-    cfg = arg0
+    cfg = {
+      ...arg0,
+      options: {...cfg.options, ...arg0.options},
+    }
   }
   const {app, server} = cfg
   app.wsRoute = []
@@ -36,7 +43,7 @@ function expressWs(arg0) {
   app.ws = (route, mid) => {
     app.wsRoute.push({
       route,
-      wss: new Server({ noServer: true }),
+      wss: new Server(cfg.options.ws),
       mid,
     })
   }
