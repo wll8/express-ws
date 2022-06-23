@@ -15,6 +15,7 @@ It may provide a solution for the following problems:
 - [x] http and ws of the same route can exist at the same time
 - [x] Support dynamic routing
 - [x] Support reading params, query parameters
+- [x] Support Typescript
 
 ## how to use
 
@@ -25,8 +26,7 @@ npm i @wll8/express-ws
 ``` js
 const express = require(`express`)
 const expressWs = require(`@wll8/express-ws`)
-const app = express()
-expressWs(app)
+const {app, wsRoute} = expressWs(express())
 
 app.ws(`/abc`, (ws, req) => {
   // const {params, query} = req
@@ -39,7 +39,7 @@ app.get(`/abc`, (req, res) => {
 app.listen(3040)
 ```
 
-- For more examples see the file: [test.js](./test/index.test.js)
+- For more examples see the file: [test.js](https://github.com/wll8/express-ws/blob/ad35c6156aed4f8d195214784ad903f22ce84536/test/index.test.ts#L15)
 - dependencies
   ```
   "path-to-regexp": "0.1.7",
@@ -62,16 +62,13 @@ app.listen(3040)
 | wsInstance.app | wsInstance.app | wll8: same as app |
 | wsInstance.getWss | --- | wll8: No |
 | wsInstance.applyTo | --- | wll8: No |
-| --- | wsInstance.wsRoute[] | [{route, wss, mid}](https://github.com/wll8/express-ws/blob/main/index.js#L44) |
+| --- | wsInstance.wsRoute[] | [{route, wss, mid}](https://github.com/wll8/express-ws/blob/ad35c6156aed4f8d195214784ad903f22ce84536/src/type.ts#L25) |
 
 **Parse the request**
 | HenningM | wll8 | Remark |
 | --- | --- | --- |
 | --- | req.params | Parameters in routes |
 | --- | req.query | query parameter |
-
-## todo
-- [ ] [Use typescript to achieve automatic prompting](https://github.com/wll8/express-ws/issues/1), does anyone have some help?
 
 ## License
 [MIT](https://opensource.org/licenses/MIT)

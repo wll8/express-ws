@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "commonjs",
+    "moduleResolution": "Node",
+    "outDir": "./dist",
+    "allowJs": true,
+    "target": "es2015"
+  },
+  "include": ["./**/*"]
+}
