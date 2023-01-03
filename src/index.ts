@@ -78,7 +78,7 @@ function expressWs (arg0: Arg0) {
       }
       return isFind
     })
-    obj ? obj.wss.handleUpgrade(req, socket, head, ws => obj.mid(ws, req)) : socket.destroy()
+    obj && obj.wss.handleUpgrade(req, socket, head, ws => obj.mid(ws, req))
   })
   wsApp.listen = (...arg) => server.listen(...arg)
   wsApp.ws = (route, mid) => {
