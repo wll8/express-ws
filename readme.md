@@ -48,27 +48,27 @@ app.listen(3040)
 ## differences
 
 **Initialization**
-| HenningM | wll8 | Remark |
-| --- | --- | --- |
-| expressWs(app) | expressWs(app) | express instance |
-| expressWs(app, server) | expressWs({app, server}) | http.createServer(app) |
-| expressWs(app, server, options) | expressWs({app, server, options}) | Other configuration |
-| options.leaveRouterUntouched | --- | wll8: No |
-| options.wsOptions | options.ws | wll8: initialization parameters for each ws api |
+| HenningM                        | wll8                              | Remark                                          |
+| ------------------------------- | --------------------------------- | ----------------------------------------------- |
+| expressWs(app)                  | expressWs(app)                    | express instance                                |
+| expressWs(app, server)          | expressWs({app, server})          | http.createServer(app)                          |
+| expressWs(app, server, options) | expressWs({app, server, options}) | Other configuration                             |
+| options.leaveRouterUntouched    | ---                               | wll8: No                                        |
+| options.wsOptions               | options.ws                        | wll8: initialization parameters for each ws api |
 
 **return value**
-| HenningM | wll8 | Remark |
-| --- | --- | --- |
-| wsInstance.app | wsInstance.app | wll8: same as app |
-| wsInstance.getWss | --- | wll8: No |
-| wsInstance.applyTo | --- | wll8: No |
-| --- | wsInstance.wsRoute[] | [{route, wss, mid}](https://github.com/wll8/express-ws/blob/ad35c6156aed4f8d195214784ad903f22ce84536/src/type.ts#L25) |
+| HenningM           | wll8                 | Remark                                                                                                                     |
+| ------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| wsInstance.app     | wsInstance.app       | wll8: same as app                                                                                                          |
+| wsInstance.getWss  | ---                  | wll8: Get from [wsRoute](https://github.com/wll8/express-ws/blob/ad35c6156aed4f8d195214784ad903f22ce84536/src/type.ts#L25) |
+| wsInstance.applyTo | ---                  | wll8: No                                                                                                                   |
+| ---                | wsInstance.wsRoute[] | [{route, wss, mid}](https://github.com/wll8/express-ws/blob/ad35c6156aed4f8d195214784ad903f22ce84536/src/type.ts#L25), For example wss.clients can get all connected clients      |
 
 **Parse the request**
-| HenningM | wll8 | Remark |
-| --- | --- | --- |
-| --- | req.params | Parameters in routes |
-| --- | req.query | query parameter |
+| HenningM | wll8       | Remark               |
+| -------- | ---------- | -------------------- |
+| ---      | req.params | Parameters in routes |
+| ---      | req.query  | query parameter      |
 
 ## License
 [MIT](https://opensource.org/licenses/MIT)
