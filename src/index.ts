@@ -71,7 +71,7 @@ function expressWs (arg0: Arg0) {
   const wsRoute = []
   server.on(`upgrade`, (req: wsIncomingMessage, socket, head) => {
     const obj = wsRoute.find(item => {
-      const isFind = pathToRegexp(item.route).exec(req.url)
+      const isFind = pathToRegexp(item.route).exec(new URL(`x://${req.url}`).pathname)
       if(isFind) {
         req.params = parseParams(item.route, req.url)
         req.query = parseQuery(req.url)
