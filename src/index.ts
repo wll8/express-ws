@@ -20,7 +20,7 @@ import {
  * @returns 
  */
 function parseQuery(url) {
-  const fullUrl = url.includes(`:`) ? url : `ws://x${url}`
+  const fullUrl = url.includes(`:`) ? url : `x://${url}`
   const query = [...new URLSearchParams(new URL(fullUrl).search)].reduce((acc, [key, val]) => {
     acc[key] = val
     return acc
@@ -34,7 +34,7 @@ function parseQuery(url) {
  * @param {*} url url with parameters
  */
 function parseParams(rePath, url) {
-  const fullUrl = url.includes(`:`) ? url : `ws://x${url}`
+  const fullUrl = url.includes(`:`) ? url : `x://${url}`
   const keys = []
   const re = pathToRegexp(rePath, keys)
   const pathname = new URL(fullUrl).pathname
