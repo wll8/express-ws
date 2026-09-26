@@ -42,8 +42,8 @@ app.listen(3040)
 - For more examples see the file: [test.js](https://github.com/wll8/express-ws/blob/ad35c6156aed4f8d195214784ad903f22ce84536/test/index.test.ts#L15)
 - dependencies
   ```
-  "path-to-regexp": "0.1.7",
-  "ws": "7.5.5"
+  "path-to-regexp": "8.4.2",
+  "ws": "8.21.3"
   ```
 ## differences
 

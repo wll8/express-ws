@@ -3,8 +3,8 @@
  * https://github.com/websockets/ws#multiple-servers-sharing-a-single-https-server
  */
 
-import * as pathToRegexp from 'path-to-regexp'
-import { Server } from 'ws'
+import { pathToRegexp } from 'path-to-regexp'
+import { WebSocketServer as Server } from 'ws'
 import * as http from 'http'
 import { 
   Arg0,
@@ -35,12 +35,11 @@ function parseQuery(url) {
  */
 function parseParams(rePath, url) {
   const fullUrl = url.includes(`:`) ? url : `x://${url}`
-  const keys = []
-  const re = pathToRegexp(rePath, keys)
+  const { regexp, keys } = pathToRegexp(rePath)
   const pathname = new URL(fullUrl).pathname
-  const result = re.exec(pathname)
+  const result = regexp.exec(pathname)
   const obj = keys.reduce((acc, cur, index) => {
-    acc[cur.name] = result[index + 1]
+    acc[cur.name] = result ? result[index + 1] : undefined
     return acc
   }, {})
   return obj
@@ -71,7 +70,7 @@ function expressWs (arg0: Arg0) {
   const wsRoute = []
   server.on(`upgrade`, (req: wsIncomingMessage, socket, head) => {
     const obj = wsRoute.find(item => {
-      const isFind = pathToRegexp(item.route).exec(new URL(`x://${req.url}`).pathname)
+      const isFind = pathToRegexp(item.route).regexp.exec(new URL(`x://${req.url}`).pathname)
       if(isFind) {
         req.params = parseParams(item.route, req.url)
         req.query = parseQuery(req.url)

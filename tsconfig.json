@@ -4,8 +4,10 @@
     "module": "commonjs",
     "moduleResolution": "Node",
     "outDir": "./dist",
+    "rootDir": ".",
     "allowJs": true,
+    "esModuleInterop": true,
     "target": "es2015"
   },
-  "include": ["./**/*"]
+  "include": ["src/**/*"]
 }

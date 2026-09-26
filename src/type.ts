@@ -1,4 +1,4 @@
-import { Server, WebSocket, ServerOptions } from 'ws'
+import { WebSocketServer as Server, WebSocket, ServerOptions } from 'ws'
 import { Server as httpServer } from 'http'
 import { Application } from 'express'
 import { IncomingMessage } from "http"
